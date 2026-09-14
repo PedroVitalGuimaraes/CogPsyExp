@@ -1,0 +1,820 @@
+---
+API: 3
+OpenSesame: 4.1.0a6
+Platform: nt
+---
+set width 1920
+set uniform_coordinates yes
+set title "Github Demo"
+set subject_parity even
+set subject_nr 0
+set start BM_SilMuEsCa
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend osweb
+set round_decimals 2
+set mouse_backend osweb
+set keyboard_backend osweb
+set height 1080
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 24
+set font_italic False
+set font_family Arial
+set font_bold False
+set experiment_path "C:\\Users\\User\\Desktop\\OsexpGithubDemo"
+set disable_garbage_collection False
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend osweb
+set clock_backend osweb
+set canvas_backend osweb
+set background black
+
+define sequence BM_SilMuEsCa
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run Intro always
+	run ConsentimentoInformado always
+	run InstrucoesIniciais always
+	run Sound_test_instructions always
+	run Sound_test always
+	run Background_Mozart always
+	run End always
+
+define sequence BM_block_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run B_Instructions_Memorize always
+	run B_promptToListen always
+	run B_fixation_startBlock1 always
+	run B_memorize_loop1 always
+	run B_follow_Block2 always
+	run B_fixation_startBlock2 always
+	run B_Musica always
+	run B_memorize_loop2 always
+	run B_follow_Block3 always
+	run B_fixation_startBlock3 always
+	run B_Escritorio always
+	run B_memorize_loop3 always
+	run B_follow_Block4 always
+	run B_fixation_startBlock4 always
+	run B_Casa always
+	run B_memorize_loop4 always
+	run FIMTarefaMem1 always
+	run Instruction_TIPI always
+	run Q_TIPI always
+	run FimQTIPI always
+	run B_Instructions_RECOGNITION always
+	run b_Recognition always
+	run FIMTarefaRec1 always
+	run PAUSE always
+	run Instructions_Q_Sociodemo always
+	run Q_sociodemo always
+
+define sampler B_Casa
+	set volume 1
+	set stop_after 0
+	set sample "Home.wav"
+	set pitch 1
+	set pan 0
+	set fade_in 0
+	set duration 6000
+	set description "Plays a sound file in .wav or .ogg format"
+
+define sampler B_Escritorio
+	set volume 1
+	set stop_after 0
+	set sample "Office.wav"
+	set pitch 1
+	set pan 0
+	set fade_in 0
+	set duration 6000
+	set description "Plays a sound file in .wav or .ogg format"
+
+define sketchpad B_Instructions_Memorize
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="MEMORIZATION Task<br /><br />You will see a set of words<br />that you will have to memorize.<br /><br />The words appear organized <br />into four sets of 5.<br />During each set you will hear <br />sound or silence.<br /><br />SOMETIMES YOU WILL SEE ONLY A CIRCLE<br />AND WILL HEAR ONLY SILENCE.<br />THIS IS NORMAL. PLEASE WAIT.<br /><br />Press any key to start<br /><br /><br />" x=0 y=64 z_index=0
+
+define sketchpad B_Instructions_RECOGNITION
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="RECOGNITION Task<br /><br />A single word will be presented.<br />-If you think you recognize the word from the lists<br /> presented earlier, press the S key <br />- If you do not recognize it, press the N key.<br /><br />Words that you recognize will have an extra question <br />in which you will be asked to identify the sound context <br />in which the word initially appeared. <br />(silence, music, office sounds, home sounds)<br /> <br />Use the indicated keys to respond.<br /><br />Press any key to start" x=32 y=0 z_index=0
+
+define keyboard_response B_Kb_resp_item
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "s;n"
+
+define keyboard_response B_Kb_resp_source
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "m; c; e; s"
+
+define sampler B_Musica
+	set volume 1
+	set stop_after 0
+	set sample "Music.wav"
+	set pitch 1
+	set pan 0
+	set fade_in 0
+	set duration 6000
+	set description "Plays a sound file in .wav or .ogg format"
+
+define sketchpad B_black_screen
+	set duration 1
+	set description "Displays stimuli"
+
+define sketchpad B_fixation1
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation1_1
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation2
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation2_1
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation3
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation3_1
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation4
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation4_1
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation_5
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation_startBlock1
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation_startBlock2
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation_startBlock3
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_fixation_startBlock4
+	set duration 200
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad B_follow_Block2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Press any key to see the next set of words." x=32 y=0 z_index=0
+
+define sketchpad B_follow_Block3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Press any key to see the next set of words." x=32 y=0 z_index=0
+
+define sketchpad B_follow_Block4
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Press any key to see the next set of words." x=32 y=0 z_index=0
+
+define loop B_memorize_loop1
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 5
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 word Declarar
+	setcycle 0 new_column_1 ""
+	setcycle 1 word Provedor
+	setcycle 1 new_column_1 ""
+	setcycle 2 word Embebedar
+	setcycle 2 new_column_1 ""
+	setcycle 3 word "Explícito"
+	setcycle 3 new_column_1 ""
+	setcycle 4 word Silveira
+	setcycle 4 new_column_1 ""
+	run B_trial_sequence1
+
+define loop B_memorize_loop2
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 5
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 word Alcovitar
+	setcycle 1 word "Religião"
+	setcycle 2 word Totalizar
+	setcycle 3 word "Reflexão"
+	setcycle 4 word Paliativo
+	run B_trial_sequence2
+
+define loop B_memorize_loop3
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 5
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 word "Carência"
+	setcycle 1 word Suculento
+	setcycle 2 word Subjugar
+	setcycle 3 word Mostarda
+	setcycle 4 word Autocrata
+	run B_trial_sequence3
+
+define loop B_memorize_loop4
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 5
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 word Elementar
+	setcycle 1 word "Alumínio"
+	setcycle 2 word Enrascar
+	setcycle 3 word Restituir
+	setcycle 4 word Emagrecer
+	run B_trial_sequence4
+
+define sketchpad B_promptToListen
+	set duration 2000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Please wait until <br />the first set of words appears" x=0 y=0 z_index=0
+
+define sketchpad B_question_item
+	set duration 100
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Do you recognize this word?<br />YES - S key  <br />NO - N key" x=0 y=0 z_index=0
+
+define sketchpad B_question_source
+	set duration 100
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="In which context?<br /><br />Music - M key<br />Home - C key<br />Office - E key<br />Silence - S key<br /><br />" x=0 y=0 z_index=0
+
+define sequence B_trial_sequence1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run B_fixation1 always
+	run B_words1 always
+	run B_fixation1_1 always
+
+define sequence B_trial_sequence2
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run B_fixation2 always
+	run B_words2 always
+	run B_fixation2_1 always
+
+define sequence B_trial_sequence3
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run B_fixation3 always
+	run B_words3 always
+	run B_fixation3_1 always
+
+define sequence B_trial_sequence4
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run B_fixation4 always
+	run B_words4 always
+	run B_fixation4_1 always
+
+define sequence B_trial_sequence_5
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run B_fixation_5 always
+	run B_words_recognize always
+	run B_question_item always
+	run B_Kb_resp_item always
+	run B_question_source "[response_B_Kb_resp_item] = s"
+	run B_Kb_resp_source "[response_B_Kb_resp_item] = s"
+	run B_black_screen "[response_B_Kb_resp_item] = n"
+	run new_logger always
+
+define sketchpad B_words1
+	set duration 3000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="[word]" x=0 y=0 z_index=0
+
+define sketchpad B_words2
+	set duration 3000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="[word]" x=0 y=0 z_index=0
+
+define sketchpad B_words3
+	set duration 3000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="[word]" x=0 y=0 z_index=0
+
+define sketchpad B_words4
+	set duration 3000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="[word]" x=0 y=0 z_index=0
+
+define sketchpad B_words_recognize
+	set duration 1000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="[Bword]" x=0 y=0 z_index=0
+
+define loop Background_Mozart
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 practice no
+	run BM_block_sequence
+
+define sketchpad ConsentimentoInformado
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="INFORMED CONSENT<br /><br />Your participation is anonymous and voluntary.<br />If you wish to interrupt the experiment <br />you may do so at any time, simply press the ESC key. <br /><br />The personal data you provide <br />will be kept confidential and the results <br />obtained in this study will be used <br />solely to achieve the objectives <br />of the research. <br /><br />If you agree to take part in the study <br />under these conditions, <br />press any key to continue.<br />" x=0 y=0 z_index=0
+
+define sketchpad End
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Demo's over.<br />Press any key to exit." x=0 y=0 z_index=0
+
+define sketchpad FIMTarefaMem1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="You have finished Memorization Task 1.<br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define sketchpad FIMTarefaRec1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="You have finished Recognition Task 1.<br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define sketchpad FimQTIPI
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="You have finished the Personality Questionnaire.<br /><br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define sketchpad InstrucoesIniciais
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="INSTRUCTIONS<br /><br />This is a demo experiment.<br /><br />1. Memorize four lists of five words that<br />appear associated with different sound contexts.<br /><br />2. Fill out two questionnaires <br />(Personality and Sociodemographic).<br /><br />3. Classify words <br />as having appeared or not in the initial lists<br /> and identify their sound context.<br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define sketchpad Instruction_TIPI
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="TIPI - PERSONALITY QUESTIONNAIRE<br /><br />You will see 10 statements beginning with<br />'I see myself as someone who....'<br /><br />Please indicate how much each statement<br />applies to you, using a scale from 1 to 7.<br /><br />1 Strongly Disagree, <br />2 Moderately Disagree, <br />3 Disagree a Little,<br />4 Neither Agree Nor Disagree,<br />5 Agree a Little,<br />6 Moderately Agree, <br />7 Strongly Agree<br /><br />Press any key to start" x=0 y=0 z_index=0
+
+define sketchpad Instructions_Q_Sociodemo
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="QUESTIONÁRIO SOCIODEMOGRÁFICO<br /><br />Por favor responda ás seguintes questões.<br /><br /><br />Pressione qualquer tecla para iniciar" x=0 y=0 z_index=0
+
+define sketchpad Intro
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="IMPACT OF SOUND CONTEXT ON MEMORY<br /><br />This is a demo for display purposes of the experiment built<br /> on my Psychology Master's dissertation<br />at FPCEUP, University of Porto. <br /><br />The full experiment consists of<br />two Memory tasks, two Recognition tasks,<br /> two brief questionnaires. <br /><br />Since this is a demo, only two tasks of each <br /> and questionnaires are shown.  <br /><br />Press any key to continue" x=0 y=0 z_index=0
+
+define sketchpad PAUSE
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="BREAK<br /><br />You would have completed 1/2 of the full experiment.<br />It would be asked of you to try to memorize <br />4 more sets of words <br />and then test your memory again.<br />The sound context would have a different dynamic.<br /><br /> Since this a demo, there's only left a sociodemographic questionnaire.<br /><br />Press any key whenever you wish to proceed" x=0 y=0 z_index=0
+
+define loop Q_TIPI
+	set source_file ""
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 10
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 string "Vejo-me como uma pessoa extrovertida, entusiasta."
+	setcycle 0 new_column_1 ""
+	setcycle 1 string "Vejo-me como uma pessoa Conflituosa, que critica os outros."
+	setcycle 1 new_column_1 ""
+	setcycle 2 string "Vejo-me como uma pessoa de Confiança, com auto-disciplina."
+	setcycle 2 new_column_1 ""
+	setcycle 3 string "Vejo-me como uma pessoa Ansiosa, que se preocupa facilmente."
+	setcycle 3 new_column_1 ""
+	setcycle 4 string "Vejo-me como uma pessoa com muitos interesses, aberta a novas experiências."
+	setcycle 4 new_column_1 ""
+	setcycle 5 string "Vejo-me como uma pessoa Reservada, calada."
+	setcycle 5 new_column_1 ""
+	setcycle 6 string "Vejo-me como uma pessoa Compreensiva, afetuosa."
+	setcycle 6 new_column_1 ""
+	setcycle 7 string "Vejo-me como uma pessoa Desorganizada, descuidada."
+	setcycle 7 new_column_1 ""
+	setcycle 8 string "Vejo-me como uma pessoa Calma, emocionalmente estável."
+	setcycle 8 new_column_1 ""
+	setcycle 9 string "Vejo-me como uma pessoa Convencional, pouco criativa."
+	setcycle 9 new_column_1 ""
+	run questions_sequence_ti
+
+define loop Q_sociodemo
+	set source_file ""
+	set source table
+	set repeat 1
+	set order sequential
+	set description "Repeatedly runs another item"
+	set cycles 10
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 string "Idade?"
+	setcycle 0 new_column_1 ""
+	setcycle 1 string "Género?"
+	setcycle 1 new_column_1 ""
+	setcycle 2 string "Escolaridade?"
+	setcycle 2 new_column_1 ""
+	setcycle 3 string "Profissão?"
+	setcycle 3 new_column_1 ""
+	setcycle 4 string "Ouve música enquanto trabalha/estuda?"
+	setcycle 4 new_column_1 ""
+	setcycle 5 string "Teve formação musical fora do ensino básico?"
+	setcycle 5 new_column_1 ""
+	setcycle 6 string "Se sim, quantos anos?"
+	setcycle 6 new_column_1 ""
+	setcycle 7 string "Durante o covid-19, trabalhou/estudou em teletrabalho?"
+	setcycle 7 new_column_1 ""
+	setcycle 8 string "Considerou o regime de teletrabalho produtivo?"
+	setcycle 8 new_column_1 ""
+	setcycle 9 string "Tem algum problema de audição?"
+	setcycle 9 new_column_1 ""
+	run questions_sequence_sd
+
+define sampler Sound_test
+	set volume 1
+	set stop_after 0
+	set sample "Music.wav"
+	set pitch 1
+	set pan 0
+	set fade_in 0
+	set duration sound
+	set description "Plays a sound file in .wav or .ogg format"
+
+define sketchpad Sound_test_instructions
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="SOUND TEST<br /><br />Before proceeding<br /> please adjust your computer's volume, <br />so that you can hear the music<br />without any difficulty.<br /><br />If possible, use headphones.<br />We ask you to keep the volume constant<br /> throughout the experiment.<br /><br />Press any key to listen.<br />Wait until the music ends.<br />" x=0 y=0 z_index=0
+
+define loop b_Recognition
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 40
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 Bword Declarar
+	setcycle 0 Bcorrect_response s
+	setcycle 0 Bcorrect_source s
+	setcycle 1 Bword Provedor
+	setcycle 1 Bcorrect_response s
+	setcycle 1 Bcorrect_source s
+	setcycle 2 Bword Embebedar
+	setcycle 2 Bcorrect_response s
+	setcycle 2 Bcorrect_source s
+	setcycle 3 Bword "Explícito"
+	setcycle 3 Bcorrect_response s
+	setcycle 3 Bcorrect_source s
+	setcycle 4 Bword Silveira
+	setcycle 4 Bcorrect_response s
+	setcycle 4 Bcorrect_source s
+	setcycle 5 Bword Alcovitar
+	setcycle 5 Bcorrect_response s
+	setcycle 5 Bcorrect_source m
+	setcycle 6 Bword "Religião"
+	setcycle 6 Bcorrect_response s
+	setcycle 6 Bcorrect_source m
+	setcycle 7 Bword Totalizar
+	setcycle 7 Bcorrect_response s
+	setcycle 7 Bcorrect_source m
+	setcycle 8 Bword "Reflexão"
+	setcycle 8 Bcorrect_response s
+	setcycle 8 Bcorrect_source m
+	setcycle 9 Bword Paliativo
+	setcycle 9 Bcorrect_response s
+	setcycle 9 Bcorrect_source m
+	setcycle 10 Bword "Carência"
+	setcycle 10 Bcorrect_response s
+	setcycle 10 Bcorrect_source e
+	setcycle 11 Bword Suculento
+	setcycle 11 Bcorrect_response s
+	setcycle 11 Bcorrect_source e
+	setcycle 12 Bword Subjugar
+	setcycle 12 Bcorrect_response s
+	setcycle 12 Bcorrect_source e
+	setcycle 13 Bword Mostarda
+	setcycle 13 Bcorrect_response s
+	setcycle 13 Bcorrect_source e
+	setcycle 14 Bword Autocrata
+	setcycle 14 Bcorrect_response s
+	setcycle 14 Bcorrect_source e
+	setcycle 15 Bword Elementar
+	setcycle 15 Bcorrect_response s
+	setcycle 15 Bcorrect_source c
+	setcycle 16 Bword "Alumínio"
+	setcycle 16 Bcorrect_response s
+	setcycle 16 Bcorrect_source c
+	setcycle 17 Bword Enrascar
+	setcycle 17 Bcorrect_response s
+	setcycle 17 Bcorrect_source c
+	setcycle 18 Bword Restituir
+	setcycle 18 Bcorrect_response s
+	setcycle 18 Bcorrect_source c
+	setcycle 19 Bword Emagrecer
+	setcycle 19 Bcorrect_response s
+	setcycle 19 Bcorrect_source c
+	setcycle 20 Bword "Ilícito"
+	setcycle 20 Bcorrect_response n
+	setcycle 20 Bcorrect_source ""
+	setcycle 21 Bword "Impalpável"
+	setcycle 21 Bcorrect_response n
+	setcycle 21 Bcorrect_source ""
+	setcycle 22 Bword Urgente
+	setcycle 22 Bcorrect_response n
+	setcycle 22 Bcorrect_source ""
+	setcycle 23 Bword Producente
+	setcycle 23 Bcorrect_response n
+	setcycle 23 Bcorrect_source ""
+	setcycle 24 Bword Petrificar
+	setcycle 24 Bcorrect_response n
+	setcycle 24 Bcorrect_source ""
+	setcycle 25 Bword Candeio
+	setcycle 25 Bcorrect_response n
+	setcycle 25 Bcorrect_source ""
+	setcycle 26 Bword Descida
+	setcycle 26 Bcorrect_response n
+	setcycle 26 Bcorrect_source ""
+	setcycle 27 Bword "Abjeção"
+	setcycle 27 Bcorrect_response n
+	setcycle 27 Bcorrect_source ""
+	setcycle 28 Bword Ciclone
+	setcycle 28 Bcorrect_response n
+	setcycle 28 Bcorrect_source ""
+	setcycle 29 Bword Grevista
+	setcycle 29 Bcorrect_response n
+	setcycle 29 Bcorrect_source ""
+	setcycle 30 Bword Oitenta
+	setcycle 30 Bcorrect_response n
+	setcycle 30 Bcorrect_source ""
+	setcycle 31 Bword Congelador
+	setcycle 31 Bcorrect_response n
+	setcycle 31 Bcorrect_source ""
+	setcycle 32 Bword Entulho
+	setcycle 32 Bcorrect_response n
+	setcycle 32 Bcorrect_source ""
+	setcycle 33 Bword Subverter
+	setcycle 33 Bcorrect_response n
+	setcycle 33 Bcorrect_source ""
+	setcycle 34 Bword Contaminar
+	setcycle 34 Bcorrect_response n
+	setcycle 34 Bcorrect_source ""
+	setcycle 35 Bword Retirar
+	setcycle 35 Bcorrect_response n
+	setcycle 35 Bcorrect_source ""
+	setcycle 36 Bword Manifestar
+	setcycle 36 Bcorrect_response n
+	setcycle 36 Bcorrect_source ""
+	setcycle 37 Bword Flutuar
+	setcycle 37 Bcorrect_response n
+	setcycle 37 Bcorrect_source ""
+	setcycle 38 Bword Desempatar
+	setcycle 38 Bcorrect_response n
+	setcycle 38 Bcorrect_source ""
+	setcycle 39 Bword Participar
+	setcycle 39 Bcorrect_response n
+	setcycle 39 Bcorrect_source ""
+	run B_trial_sequence_5
+
+define loop get_input_loop_exp_ti
+	set source_file ""
+	set source table
+	set repeat 200
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 6
+	set continuous no
+	set break_if_on_first yes
+	set break_if "[response] = return or [response] = enter"
+	setcycle 0 empty_column ""
+	setcycle 1 empty_column ""
+	setcycle 2 empty_column ""
+	setcycle 3 empty_column ""
+	setcycle 4 empty_column ""
+	setcycle 5 empty_column ""
+	run get_input_sequence_ti
+
+define loop get_input_loop_sd
+	set source_file ""
+	set source table
+	set repeat 200
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 5
+	set continuous no
+	set break_if_on_first yes
+	set break_if "[response] = return or [response] = enter"
+	setcycle 0 empty_column ""
+	setcycle 1 empty_column ""
+	setcycle 2 empty_column ""
+	setcycle 3 empty_column ""
+	setcycle 4 empty_column ""
+	run get_input_sequence_sd
+
+define sequence get_input_sequence_sd
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run show_input_sd always
+	run number_input_sd always
+	run process_input_sd always
+	run new_logger always
+
+define sequence get_input_sequence_ti
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run show_input_ti always
+	run number_input_ti always
+	run process_input_ti always
+	run new_logger always
+
+define inline_javascript init_sd
+	set description "Executes JavaScript code (ECMA 5.1)"
+	set _run ""
+	___prepare__
+	vars.multichar_response = ''
+	vars.response = ''
+	__end__
+
+define inline_javascript init_ti
+	set description "Executes JavaScript code (ECMA 5.1)"
+	set _run ""
+	___prepare__
+	vars.multichar_response = ''
+	vars.response = ''
+	__end__
+
+define logger new_logger
+	set description "Logs experimental data"
+	set auto_log no
+	log Bcorrect_response
+	log Bcorrect_source
+	log Bword
+	log Mcorrect_response
+	log Mcorrect_source
+	log Mword
+	log acc
+	log accuracy
+	log average_response_time
+	log avg_rt
+	log count_question_sd
+	log count_question_ti
+	log experiment_path
+	log response
+	log response_B_Kb_resp_item
+	log response_B_Kb_resp_source
+	log response_M_Kb_resp_item
+	log response_M_Kb_resp_source
+	log response_time_B_Kb_resp_item
+	log response_time_B_Kb_resp_source
+	log response_time_M_Kb_resp_item
+	log response_time_M_Kb_resp_source
+	log start
+	log string
+	log subject_nr
+
+define keyboard_response number_input_sd
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define keyboard_response number_input_ti
+	set timeout infinite
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define inline_javascript process_input_sd
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	console.log(vars.response)
+	if (vars.response in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+	    vars.multichar_response += vars.response.toString()
+	} else if (vars.response === 'backspace') {
+	    vars.multichar_response = vars.multichar_response.toString().slice(0, vars.multichar_response.toString().length - 1)
+	} else if (vars.response !== 'enter') {
+	    vars.multichar_response += vars.response
+	}
+	__end__
+	set _prepare ""
+
+define inline_javascript process_input_ti
+	set description "Executes JavaScript code (ECMA 5.1)"
+	___run__
+	console.log(vars.response)
+	if (vars.response in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) {
+	    vars.multichar_response += vars.response.toString()
+	} else if (vars.response === 'backspace') {
+	    vars.multichar_response = vars.multichar_response.toString().slice(0, vars.multichar_response.toString().length - 1)
+	} else if (vars.response !== 'enter') {
+	    vars.multichar_response += vars.response
+	}
+	__end__
+	set _prepare ""
+
+define sketchpad question_sd
+	set duration 3000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=23 html=yes show_if=always text="[string]" x=0 y=0 z_index=0
+
+define sketchpad question_ti
+	set duration 5000
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=18 html=yes show_if=always text="" x=0 y=0 z_index=0
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=23 html=yes show_if=always text="[string]" x=0 y=0 z_index=0
+
+define sequence questions_sequence_sd
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run init_sd always
+	run question_sd always
+	run get_input_loop_sd always
+
+define sequence questions_sequence_ti
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run init_ti always
+	run question_ti always
+	run get_input_loop_exp_ti always
+
+define sketchpad show_input_sd
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Responda usando o teclado<br /><br />Prima enter para continuar<br /><br /> [multichar_response]" x=0 y=0 z_index=0
+
+define sketchpad show_input_ti
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=24 html=yes show_if=always text="Responda com um número de 1 a 7.<br /><br /><br /><br /> Prima enter para continuar<br /><br /> [multichar_response]" x=0 y=0 z_index=0
+
